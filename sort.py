@@ -1,22 +1,25 @@
-def quick_sort(arr):
-    if len(arr) <= 1:
-        return arr
+def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
 
-    pivot = arr[-1]
+    for j in range(low, high):
+        if arr[j] < pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
 
-    left = []
-    right = []
 
-    for i in range(len(arr) - 1):
-        if arr[i] < pivot:
-            left.append(arr[i])
-        else:
-            right.append(arr[i])
+def quick_sort(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
 
-    return quick_sort(left) + [pivot] + quick_sort(right)
+        quick_sort(arr, low, pi - 1)
+        quick_sort(arr, pi + 1, high)
 
 
 # Test
 arr = [8, 3, 1, 7, 0, 10, 2]
-sorted_arr = quick_sort(arr)
-print(sorted_arr)
+quick_sort(arr, 0, len(arr) - 1)
+print(arr)
