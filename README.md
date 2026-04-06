@@ -8,7 +8,7 @@
 - [About](#about)
 - [Features](#features)
 - [Installation](#installation)
-
+- [Visual Tree](#VisualTree)
 ---
 
 ## About
@@ -25,6 +25,22 @@ This project provides a Python implementation that is simple, readable, and educ
 - Can be extended for custom comparison functions
 
 ---
+
+## VisualTree
+                [8,3,1,7,0,10,2]
+                       |
+                      (2)
+          -------------------------
+         |                         |
+     [1,0]                   [8,3,7,10]
+       |                         |
+      (0)                       (10)
+   ---------               -------------
+  []       [1]        [8,3,7]        []
+                         |
+                        (7)
+                   ---------
+                  [3]     [8]
 
 ## Installation
 Clone the repository and navigate into it:
